@@ -21,8 +21,7 @@ const ios = () => {
 };
   
 var isiPhone = ios();
-
-$("#btn_capture").on("click", () => {
+document.getElementById("btn_capture").addEventListener("click", function() {
     alert(isiPhone);
     if( !isiPhone ) {
         getCameraSelection()
@@ -42,7 +41,7 @@ $("#btn_capture").on("click", () => {
                     "Please open this page via mobile device")
             );
     } else {
-        $("#btn_ios_capture").trigger("click");
+        document.getElementById("btn_ios_capture").click();
     }
 })
 
