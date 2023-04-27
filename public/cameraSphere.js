@@ -23,6 +23,7 @@ const ios = () => {
 var isiPhone = ios();
 
 $("#btn_capture").on("click", () => {
+    alert(isiPhone);
     if( !isiPhone ) {
         getCameraSelection()
             .then((r) => {
