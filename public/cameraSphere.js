@@ -22,26 +22,28 @@ const ios = () => {
   
 var isiPhone = ios();
 
-if( !isiPhone ) {
-    getCameraSelection()
-        .then((r) => {
-    
-            sessionStorage.setItem(
-                "camera",
-                JSON.stringify({
-                    ...constraints,
-                    deviceId: { exact: r.deviceId },
-                })
+$("#btn_capture").on("click", () => {
+    if( !isiPhone ) {
+        getCameraSelection()
+            .then((r) => {
+        
+                sessionStorage.setItem(
+                    "camera",
+                    JSON.stringify({
+                        ...constraints,
+                        deviceId: { exact: r.deviceId },
+                    })
+                );
+            })
+            .catch(
+                () =>
+                (document.querySelector("body").innerHTML =
+                    "Please open this page via mobile device")
             );
-        })
-        .catch(
-            () =>
-            (document.querySelector("body").innerHTML =
-                "Please open this page via mobile device")
-        );
-} else {
-    $("#btn_ios_capture").trigger("click");
-}
+    } else {
+        $("#btn_ios_capture").trigger("click");
+    }
+})
 
 var degtorad = Math.PI / 180; // Degree-to-Radian conversion
 
