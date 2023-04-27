@@ -22,7 +22,6 @@ const ios = () => {
   
 var isiPhone = ios();
 document.getElementById("btn_capture").addEventListener("click", function() {
-    alert(isiPhone);
     if( !isiPhone ) {
         getCameraSelection()
             .then((r) => {
