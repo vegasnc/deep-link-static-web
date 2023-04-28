@@ -75,8 +75,23 @@
 <script src="cameraSphere.js"></script> -->
 <script>
     var link = document.createElement('a');
-    link.href = "testdeeplink://action/view";
     link.textContent = "Open TestDeepLinkApp";
+    link.href = "testdeeplink://action/view";
+
+    link.onclick = function() {
+        // Redirect to the app
+        window.location = link.href;
+
+        setTimeout(function() {
+            if (document.visibilityState === 'visible') {
+                window.location = "https://play.google.com/store/apps/details?id=com.test.testlinkdeep";
+            }
+        }, 500);
+
+        return false;
+    }
+
+    // Add the link to the page.
     document.body.appendChild(link);
 </script>
 </body>
