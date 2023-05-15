@@ -87,6 +87,8 @@ function deviceOrientationHandler(event) {
         let beta = (event.beta).toFixed(1);
         let gamma = (event.gamma).toFixed(1);
 
+        console.log(gamma);
+
         alpha = (180 - compassHeading(alpha, beta, gamma)).toFixed(1);
         if (beta > 85 && beta < 95)
             gamma = 0;
